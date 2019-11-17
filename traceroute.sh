@@ -62,7 +62,7 @@ else
 					T) echo -ne "TCP port "$(echo $var | awk '{print $3}')"\n"
 				esac
 				
-				#On fait la commande traceroute avec tous les parametres adaptés (temps de réponse, destination, ports, saut, AS ...)
+				#On fait la commande traceroute avec tous les parametres adaptés (temps de réponse, destination, ports, saut, AS, suppression des étoiles ...)
 				
 				r=$(sudo traceroute -w0.5 $dest $var -f$i -m$i -q1 -n -A | sed '1d' | awk '{print $2$3}' | sed 's/*//' | sed "s/\[\]//")
 				
